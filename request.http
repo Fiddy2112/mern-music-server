@@ -1,3 +1,110 @@
-###
+### Authentication
 GET http://localhost:5000/api/auth/login
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImVkNmJjOWRhMWFmMjM2ZjhlYTU2YTVkNjIyMzQwMWZmNGUwODdmMTEiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiTG9uZyBWw7UiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FGZFp1Y3BOLWlkNXJnd3M1ZEFqaTJiNnBRNUtyb2RDTC1mUlczOFc4RDU2PXM5Ni1jIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL21lcm4tbXVzaWMiLCJhdWQiOiJtZXJuLW11c2ljIiwiYXV0aF90aW1lIjoxNjYzMDcwMDE1LCJ1c2VyX2lkIjoiT0F2ODZZdGxmVWZQaU5oWG9HaWZBTjBmdXNVMiIsInN1YiI6Ik9Bdjg2WXRsZlVmUGlOaFhvR2lmQU4wZnVzVTIiLCJpYXQiOjE2NjMwNzAwMTUsImV4cCI6MTY2MzA3MzYxNSwiZW1haWwiOiJ0aG5obG9uZzIxMTJAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDA2NTc3NjQ2OTIyNDY2NDUyOTQiXSwiZW1haWwiOlsidGhuaGxvbmcyMTEyQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.fyxvsqqj7NOj4ZkD1IjCiQsEIV7AconEH-zuS7EnDgUPyd-xBlXZ3OPsGfgg_KERZEx2Hb_Gs1iUjdqYdKWR5r1_9Uxgnw_sKWl5eY75rYnIKdcaIVvidN0jdoZIJqxude-Fz_g2MhVCai_RfP3o1BcNje-Ujq9niMhwW8atYISOJU42VziJRB596aVbUbDS4Gws-FQnff9xX6b-3-EpmbsCjQ1KJC5LJ2PpOA9pqfOnyIqdSH1mUJN6Lsc9om5ajdNiqJ7485uT2-1M_3byIU7wAnAqY283EFzPH9kfe1-SSROmVbblvvTHc9CezXq5-bk0xsf2IQMPZSq2pIpA1A
+
+//----------------------------------------------------------------------
+
+### Album
+// createAlbum
+POST http://localhost:5000/api/album/createAlbum
+content-type: application/json
+
+{
+    "name": "4 Năm 2 Chàng 1 Tình Yêu OST",
+    "imageURL": "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/7/f/7f7695a4732d658580e2919f1b821faf_1477839987.jpg"
+}
+
+###
+// updateAlbum/:id
+PUT http://localhost:5000/api/album/updateAlbum/6323f61d597cf4ebda449f7f
+content-type: application/json
+
+{
+    "name": "Xin em"
+}
+
+###
+// showAlbum/:id
+GET http://localhost:5000/api/album/getAlbum/6323ef930bff673c0271a268
+
+###
+// showAllAlbum
+GET http://localhost:5000/api/album/getAllAlbum
+
+###
+// deleteAlbum/:id
+DELETE http://localhost:5000/api/album/deleteAlbum/6323fa2326545590fcc27cb6
+
+//----------------------------------------------------------------------
+
+### Artist
+// createArtist
+POST http://localhost:5000/api/artist/createArtist
+content-type: application/json
+
+{
+    "name": "Sample Name",
+    "imageURL": "Sample Image",
+     "instagram": "Sample Instagram"
+}
+
+### 
+//showArtist/:id
+GET http://localhost:5000/api/artist/getArtist/6323e7e9f3faef6e48a9b394
+
+### 
+//showAllArtists
+GET http://localhost:5000/api/artist/getAllArtist
+
+### 
+//updateArtists/:id
+PUT http://localhost:5000/api/artist/updateArtist/6323e7e9f3faef6e48a9b394
+content-type: application/json
+
+{
+    "name": "sample name name",
+    "imageURL": "sample image URL",
+    "instagram": "https://www.instagram.com/"
+}
+
+### 
+//deleteArtists/:id
+DELETE http://localhost:5000/api/artist/deleteArtist/6323df6bc4ce8786da06dd72
+
+//----------------------------------------------------------------------
+### Song
+// createSong
+POST http://localhost:5000/api/song/createSong
+content-type: application/json
+
+{
+        "name": "Mãi Mãi Là Của Nhau",
+        "imageURL": "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/7/f/7f7695a4732d658580e2919f1b821faf_1477839987.jpg",
+        "songURL": "https://zingmp3.vn/embed/song/ZW78679W",
+        "album": "4 Năm 2 Chàng 1 Tình Yêu OST",
+        "artist": "Bùi Anh Tuấn",
+        "language": "vn",
+        "category": "lyrical"
+}
+
+### 
+// updateSong/:id
+PUT http://localhost:5000/api/song/updateSong/63241cf5045a150e27815a09
+content-type: application/json
+
+{
+        "album": "632422c7228dd07f96a688ae",
+        "artist": "6322b02f203a2899522fca09"
+}
+
+### 
+// getSong/:id
+GET http://localhost:5000/api/song/getSong/63241cf5045a150e27815a09
+
+### 
+// getAllSong
+GET http://localhost:5000/api/song/getAllSong
+
+### 
+// deleteSong/:id
+DELETE http://localhost:5000/api/song/deleteSong/632425d977e22e1a2eb76903
