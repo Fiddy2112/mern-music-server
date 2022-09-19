@@ -77,6 +77,35 @@ class AuthController {
       });
     }
   }
+
+  async getUsers(req, res) {
+    try {
+      const options = {
+        sort: {
+          createAt: 1,
+        },
+      };
+
+      const users = await User.find(options);
+      if (!users) {
+        res.status(400).json({
+          success: false,
+          message: "Data not found!",
+        });
+      }
+      res.status(200).json({
+        success: true,
+        message: "Successfully get Users",
+        user: users,
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
+      });
+    }
+  }
 }
 
 module.exports = new AuthController();
